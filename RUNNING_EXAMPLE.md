@@ -146,7 +146,7 @@ The example server exposes these endpoints:
     "CARD_COUNTRY": "CRI",
     "CARD_ACCOUNT_FUND_SOURCE": "Credit",
     "CARD_CLASS": "Consumer",
-    "TOKEN_IP": "47.180.84.82",
+    "TOKEN_IP": "203.0.113.42",
     "TOKEN_REQID": 29973496
   }
 }
