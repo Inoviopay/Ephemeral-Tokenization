@@ -1,29 +1,29 @@
 # Inovio Tokenization API - Integration Guide
 
-A comprehensive guide for integrating with the Inovio tokenization API using HMAC-SHA256 request signatures.
+A comprehensive guide for integrating with the Inovio ephermeral tokenization API using HMAC-SHA256 request signatures.
 
 ## Overview
 
-The Inovio tokenization API converts credit card numbers (PANs) into tokens (TOKEN_GUID) that can be used for payment processing. The API returns card metadata including brand, type, bank, and country information along with the token.
+The Inovio ephermeral tokenization API converts credit card numbers (PANs) into one time use tokens (TOKEN_GUID) that can be used for payment processing. The API returns card metadata including brand, type, bank, and country information along with the token.
 
 ## Prerequisites
 
-To integrate with the Inovio tokenization API, you need:
+To integrate with the Inovio ephermeral tokenization API, you need:
 
 | Requirement | Description | How to Obtain |
 |-------------|-------------|---------------|
 | **Secret Key** | HMAC signing key for request authentication | Provided by Inovio during onboarding |
-| **Site ID** | Your merchant identifier | Provided by Inovio during onboarding |
+| **Site ID** | Your website  identifier | Provided by Inovio during onboarding |
 | **HTTPS Client** | HTTP library capable of GET/POST requests | Any standard HTTP client library |
 | **Crypto Library** | HMAC-SHA256 implementation | Built into most languages (Node.js crypto, Python hashlib, Java javax.crypto) |
 
 **For testing:** A complete Node.js reference implementation is included. See [RUNNING_EXAMPLE.md](RUNNING_EXAMPLE.md) for setup instructions.
 
-## Understanding Tokenization
+## Understanding Ephermeral Tokenization
 
-### What is Tokenization?
+### What is Ephermeral Tokenization?
 
-Tokenization replaces a sensitive card number (PAN) with a non-sensitive token (TOKEN_GUID) that can be safely transmitted and stored. The token maintains a reference to the original card data in Inovio's secure vault.
+Ephermeral Tokenization replaces a sensitive card number (PAN) with a non-sensitive token (TOKEN_GUID) that can be safely transmitted and stored. The token maintains a reference to the original card data in Inovio's secure vault.
 
 ### When to Tokenize
 
@@ -34,7 +34,7 @@ Tokenize cards in these scenarios:
 3. **Recurring payments** - Tokenize once, reuse the token for subsequent charges
 4. **Marketplace platforms** - Tokenize cards before routing to sub-merchants
 
-### Tokenization Flow
+### Ephermeral Tokenization Flow
 
 ```
 1. User enters card number (PAN) in your application
